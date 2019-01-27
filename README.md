@@ -41,7 +41,7 @@ covered worldwide.
 1. Install the bundle using composer:
 
     ```sh
-    composer require maxs94/geoname-bundle
+    composer require bordeaux/geoname-bundle
     ```
 
 
@@ -51,7 +51,7 @@ covered worldwide.
     // AppKernel::registerBundles()
     $bundles = array(
         // ...
-            new maxs94\Bundle\GeoNameBundle\BordeuxGeoNameBundle(),
+            new Bordeaux\Bundle\GeoNameBundle\BordeuxGeoNameBundle(),
         // ...
     );
 
