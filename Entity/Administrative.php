@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Entity;
+namespace Maxs94\Bundle\GeoNameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Administrative
  *
  * @ORM\Table(name="geo__administrative")
- * @ORM\Entity(repositoryClass="Bordeux\Bundle\GeoNameBundle\Repository\AdministrativeRepository")
+ * @ORM\Entity(repositoryClass="Maxs94\Bundle\GeoNameBundle\Repository\AdministrativeRepository")
  */
 class Administrative
 {
@@ -45,12 +45,21 @@ class Administrative
     /**
      * @var GeoName
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\GeoName")
      * @ORM\JoinColumn(name="geoname_id", referencedColumnName="id", nullable=true)
      */
     protected $geoName;
 
-
+    /**
+     * toString
+     * 
+     * @return GeoName string 
+     */
+     public function toString() {
+         return $this->code;
+     }
+    
+    
     /**
      * Get id
      *

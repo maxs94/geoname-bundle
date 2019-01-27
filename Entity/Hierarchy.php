@@ -1,13 +1,13 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Entity;
+namespace Maxs94\Bundle\GeoNameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Hierarchy
  * @author Chris Bednarczyk <chris@tourradar.com>
- * @package Bordeux\Bundle\GeoNameBundle\Entity
+ * @package Maxs94\Bundle\GeoNameBundle\Entity
  *
  * @ORM\Table(name="geo__name_hierarchy")
  * @ORM\Entity()
@@ -26,7 +26,7 @@ class Hierarchy
     /**
      * @var GeoName
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\GeoName")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
     protected $parent;
@@ -34,11 +34,20 @@ class Hierarchy
     /**
      * @var GeoName
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName", inversedBy="parents")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\GeoName", inversedBy="parents")
      * @ORM\JoinColumn(name="child_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
     protected $child;
 
+    /**
+     * toString
+     * 
+     * @return GeoName string 
+     */
+     public function toString() {
+         return $this->id;
+     }
+    
     /**
      * Get id
      *

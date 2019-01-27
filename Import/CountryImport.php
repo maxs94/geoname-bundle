@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Bordeux\Bundle\GeoNameBundle\Import;
+namespace Maxs94\Bundle\GeoNameBundle\Import;
 
 
-use Bordeux\Bundle\GeoNameBundle\Entity\Administrative;
-use Bordeux\Bundle\GeoNameBundle\Entity\Country;
-use Bordeux\Bundle\GeoNameBundle\Entity\Timezone;
+use Maxs94\Bundle\GeoNameBundle\Entity\Administrative;
+use Maxs94\Bundle\GeoNameBundle\Entity\Country;
+use Maxs94\Bundle\GeoNameBundle\Entity\Timezone;
 use Doctrine\ORM\EntityManager;
 use GuzzleHttp\Promise\Promise;
 use SplFileObject;
@@ -14,7 +14,7 @@ use SplFileObject;
 /**
  * Class CountryImport
  * @author Chris Bednarczyk <chris@tourradar.com>
- * @package Bordeux\Bundle\GeoNameBundle\Import
+ * @package Maxs94\Bundle\GeoNameBundle\Import
  */
 class CountryImport implements ImportInterface
 {
@@ -69,7 +69,7 @@ class CountryImport implements ImportInterface
         $max = $file->key();
         $file->seek(1); //skip header
 
-        $countryRepo = $this->em->getRepository("BordeuxGeoNameBundle:Country");
+        $countryRepo = $this->em->getRepository("Maxs94GeoNameBundle:Country");
 
         $pos = 0;
 
@@ -132,7 +132,7 @@ class CountryImport implements ImportInterface
             $object->setPostalRegex($postalRegex ?: null);
             $object->setLanguages(explode(",", $languages) ?: null);
             $object->setGeoName(
-                $this->em->getRepository("BordeuxGeoNameBundle:GeoName")
+                $this->em->getRepository("Maxs94GeoNameBundle:GeoName")
                 ->find($geoNameId)
             );
 
@@ -155,11 +155,11 @@ class CountryImport implements ImportInterface
 
 
         $geoNameTableName = $this->em
-            ->getClassMetadata("BordeuxGeoNameBundle:GeoName")
+            ->getClassMetadata("Maxs94GeoNameBundle:GeoName")
             ->getTableName();
 
         $countryTableName = $this->em
-            ->getClassMetadata("BordeuxGeoNameBundle:Country")
+            ->getClassMetadata("Maxs94GeoNameBundle:Country")
             ->getTableName();
 
         $sql = <<<UpdateSelect

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\DependencyInjection;
+namespace Maxs94\Bundle\GeoNameBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bordeux_geo_name');
+        $rootNode = $treeBuilder->root('maxs94_geo_name');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

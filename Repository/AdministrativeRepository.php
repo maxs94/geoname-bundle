@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Repository;
+namespace Maxs94\Bundle\GeoNameBundle\Repository;
 
 /**
  * AdministrativeRepository

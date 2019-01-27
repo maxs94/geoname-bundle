@@ -1,14 +1,18 @@
 {
-    "name": "bordeux/geoname-bundle",
+    "name": "maxs94/geoname-bundle",
     "type": "symfony-bundle",
     "description": "Symfony GeoNameBundle",
     "keywords": ["geoname", "geonameid"],
-    "homepage": "https://github.com/bordeux/geoname-bundle",
+    "homepage": "https://github.com/Maxs94/geoname-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Krzysztof Bednarczyk",
             "email": "krzysztof@bednarczyk.me"
+        },
+        {
+            "name": "Markus Steindl",
+            "email": "markus@familie-steindl.net"
         }
     ],
     "require": {
@@ -21,13 +25,13 @@
 		"guzzlehttp/promises": ">=1.0"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "^1.0",
+        "php-coveralls/php-coveralls": "^1.0",
         "phpunit/phpunit": "~4",
         "doctrine/orm": "^2.5",
         "symfony/yaml": "~2.7|~3.0"
     },
     "autoload": {
-        "psr-4": { "Bordeux\\Bundle\\GeoNameBundle\\": "" }
+        "psr-4": { "Maxs94\\Bundle\\GeoNameBundle\\": "" }
     },
     "extra": {
         "branch-alias": {

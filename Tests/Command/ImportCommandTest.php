@@ -1,10 +1,10 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Tests\Command;
+namespace Maxs94\Bundle\GeoNameBundle\Tests\Command;
 
-use Bordeux\Bundle\GeoNameBundle\Command\ImportCommand;
-use Bordeux\Bundle\GeoNameBundle\Entity\GeoName;
-use Bordeux\Bundle\GeoNameBundle\Entity\Timezone;
+use Maxs94\Bundle\GeoNameBundle\Command\ImportCommand;
+use Maxs94\Bundle\GeoNameBundle\Entity\GeoName;
+use Maxs94\Bundle\GeoNameBundle\Entity\Timezone;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -26,7 +26,7 @@ class ImportCommandTest extends WebTestCase
         $application = new Application(static::$kernel);
         $application->add(new ImportCommand());
 
-        $command = $application->find('bordeux:geoname:import');
+        $command = $application->find('maxs94:geoname:import');
         $command->setApplication($application);
 
 
@@ -45,7 +45,7 @@ class ImportCommandTest extends WebTestCase
 
         $geoNameRepo = self::$kernel->getContainer()
             ->get("doctrine")
-            ->getRepository("BordeuxGeoNameBundle:GeoName");
+            ->getRepository("Maxs94GeoNameBundle:GeoName");
 
         /** @var GeoName $ytterskaer */
         $ytterskaer = $geoNameRepo->find(630694);

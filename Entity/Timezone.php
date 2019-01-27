@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Entity;
+namespace Maxs94\Bundle\GeoNameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Timezone
  *
  * @ORM\Table(name="geo__timezone")
- * @ORM\Entity(repositoryClass="Bordeux\Bundle\GeoNameBundle\Repository\TimezoneRepository")
+ * @ORM\Entity(repositoryClass="Maxs94\Bundle\GeoNameBundle\Repository\TimezoneRepository")
  */
 class Timezone
 {
@@ -57,6 +57,15 @@ class Timezone
      */
     protected $rawOffset;
 
+    /**
+     * toString
+     * 
+     * @return GeoName string 
+     */
+     public function toString() {
+         return $this->timezone;
+     }
+    
 
     /**
      * Get id

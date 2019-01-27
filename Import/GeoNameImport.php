@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Bordeux\Bundle\GeoNameBundle\Import;
+namespace Maxs94\Bundle\GeoNameBundle\Import;
 
 
-use Bordeux\Bundle\GeoNameBundle\Entity\Timezone;
+use Maxs94\Bundle\GeoNameBundle\Entity\Timezone;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManager;
 use GuzzleHttp\Promise\Promise;
@@ -13,7 +13,7 @@ use SplFileObject;
 /**
  * Class GeoNameImport
  * @author Chris Bednarczyk <chris@tourradar.com>
- * @package Bordeux\Bundle\GeoNameBundle\Import
+ * @package Maxs94\Bundle\GeoNameBundle\Import
  */
 class GeoNameImport implements ImportInterface
 {
@@ -74,15 +74,15 @@ class GeoNameImport implements ImportInterface
         $fieldsNames = $this->getFieldNames();
 
         $geoNameTableName = $this->em
-            ->getClassMetadata("BordeuxGeoNameBundle:GeoName")
+            ->getClassMetadata("Maxs94GeoNameBundle:GeoName")
             ->getTableName();
 
         $timezoneTableName = $this->em
-            ->getClassMetadata("BordeuxGeoNameBundle:Timezone")
+            ->getClassMetadata("Maxs94GeoNameBundle:Timezone")
             ->getTableName();
 
         $administrativeTableName = $this->em
-            ->getClassMetadata("BordeuxGeoNameBundle:Administrative")
+            ->getClassMetadata("Maxs94GeoNameBundle:Administrative")
             ->getTableName();
 
 
@@ -234,7 +234,7 @@ class GeoNameImport implements ImportInterface
      */
     public function getFieldNames()
     {
-        $metaData = $this->em->getClassMetadata("BordeuxGeoNameBundle:GeoName");
+        $metaData = $this->em->getClassMetadata("Maxs94GeoNameBundle:GeoName");
 
         $result = [];
 

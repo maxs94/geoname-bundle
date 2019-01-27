@@ -1,9 +1,8 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Command;
+namespace Maxs94\Bundle\GeoNameBundle\Command;
 
-
-use Bordeux\Bundle\GeoNameBundle\Import\ImportInterface;
+use Maxs94\Bundle\GeoNameBundle\Import\ImportInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Uri;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -32,7 +31,7 @@ class ImportCommand extends ContainerAwareCommand
     {
 
         $this
-            ->setName('bordeux:geoname:import')
+            ->setName('maxs94:geoname:import')
             ->addOption(
                 'archive',
                 'a',
@@ -125,7 +124,7 @@ class ImportCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $downloadDir = $input->getOption('download-dir') ?: $this->getContainer()->getParameter("kernel.cache_dir") . DIRECTORY_SEPARATOR . 'bordeux/geoname';
+        $downloadDir = $input->getOption('download-dir') ?: $this->getContainer()->getParameter("kernel.cache_dir") . DIRECTORY_SEPARATOR . 'maxs94/geoname';
 
 
         !file_exists($downloadDir) && mkdir($downloadDir, 0700, true);
@@ -163,7 +162,7 @@ class ImportCommand extends ContainerAwareCommand
         $output->writeln('');
 
         $this->importWithProgressBar(
-            $this->getContainer()->get("bordeux.geoname.import.timezone"),
+            $this->getContainer()->get("maxs94.geoname.import.timezone"),
             $timezonesLocal,
             "Importing timezones",
             $output
@@ -184,7 +183,7 @@ class ImportCommand extends ContainerAwareCommand
             $output->writeln('');
 
             $this->importWithProgressBar(
-                $this->getContainer()->get("bordeux.geoname.import.administrative"),
+                $this->getContainer()->get("maxs94.geoname.import.administrative"),
                 $admin1Local,
                 "Importing administrative 1",
                 $output
@@ -207,7 +206,7 @@ class ImportCommand extends ContainerAwareCommand
             $output->writeln('');
 
             $this->importWithProgressBar(
-                $this->getContainer()->get("bordeux.geoname.import.administrative"),
+                $this->getContainer()->get("maxs94.geoname.import.administrative"),
                 $admin2Local,
                 "Importing administrative 2",
                 $output
@@ -231,7 +230,7 @@ class ImportCommand extends ContainerAwareCommand
             $output->writeln('');
 
             $this->importWithProgressBar(
-                $this->getContainer()->get("bordeux.geoname.import.geoname"),
+                $this->getContainer()->get("maxs94.geoname.import.geoname"),
                 $archiveLocal,
                 "Importing GeoNames",
                 $output,
@@ -244,7 +243,7 @@ class ImportCommand extends ContainerAwareCommand
 
         //countries import
         $this->importWithProgressBar(
-            $this->getContainer()->get("bordeux.geoname.import.country"),
+            $this->getContainer()->get("maxs94.geoname.import.country"),
             $countryInfoLocal,
             "Importing Countries",
             $output
@@ -265,7 +264,7 @@ class ImportCommand extends ContainerAwareCommand
             $output->writeln('');
 
             $this->importWithProgressBar(
-                $this->getContainer()->get("bordeux.geoname.import.hierarchy"),
+                $this->getContainer()->get("maxs94.geoname.import.hierarchy"),
                 $archiveLocal,
                 "Importing Hierarchy",
                 $output,

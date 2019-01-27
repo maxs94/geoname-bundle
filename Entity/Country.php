@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Entity;
+namespace Maxs94\Bundle\GeoNameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="geo__country" ,indexes={
  *     @ORM\Index(name="geoname_country_search_idx", columns={"name", "iso"})
  * })
- * @ORM\Entity(repositoryClass="Bordeux\Bundle\GeoNameBundle\Repository\CountryRepository")
+ * @ORM\Entity(repositoryClass="Maxs94\Bundle\GeoNameBundle\Repository\CountryRepository")
  */
 class Country
 {
@@ -140,7 +140,7 @@ class Country
     /**
      * @var GeoName
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\GeoName")
      * @ORM\JoinColumn(name="geoname_id", referencedColumnName="id", nullable=true)
      */
     protected $geoName;
@@ -155,6 +155,15 @@ class Country
         $this->id = $id;
     }
 
+    /**
+     * toString
+     * 
+     * @return GeoName string 
+     */
+     public function toString() {
+         return $this->iso;
+     }
+    
     /**
      * @author Chris Bednarczyk <chris@tourradar.com>
      * @return int

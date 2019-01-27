@@ -1,6 +1,6 @@
 <?php
 
-namespace Bordeux\Bundle\GeoNameBundle\Entity;
+namespace Maxs94\Bundle\GeoNameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="geo__name" ,indexes={
  *     @ORM\Index(name="geoname_geoname_search_idx", columns={"name", "country_code"})
  * })
- * @ORM\Entity(repositoryClass="Bordeux\Bundle\GeoNameBundle\Repository\GeoNameRepository")
+ * @ORM\Entity(repositoryClass="Maxs94\Bundle\GeoNameBundle\Repository\GeoNameRepository")
  */
 class GeoName
 {
@@ -78,7 +78,7 @@ class GeoName
     /**
      * @var Country
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Country")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=true)
      */
     protected $country;
@@ -93,7 +93,7 @@ class GeoName
     /**
      * @var Administrative
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Administrative")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Administrative")
      * @ORM\JoinColumn(name="admin1_id", referencedColumnName="id", nullable=true)
      */
     protected $admin1;
@@ -101,7 +101,7 @@ class GeoName
     /**
      * @var Administrative
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Administrative")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Administrative")
      * @ORM\JoinColumn(name="admin2_id", referencedColumnName="id", nullable=true)
      */
     protected $admin2;
@@ -109,7 +109,7 @@ class GeoName
     /**
      * @var Administrative
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Administrative")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Administrative")
      * @ORM\JoinColumn(name="admin3_id", referencedColumnName="id", nullable=true)
      */
     protected $admin3;
@@ -117,7 +117,7 @@ class GeoName
     /**
      * @var Administrative
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Administrative")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Administrative")
      * @ORM\JoinColumn(name="admin4_id", referencedColumnName="id", nullable=true)
      */
     protected $admin4;
@@ -147,7 +147,7 @@ class GeoName
     /**
      * @var Timezone
      *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Timezone")
+     * @ORM\ManyToOne(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Timezone")
      * @ORM\JoinColumn(name="timezone_id", referencedColumnName="id", nullable=true)
      */
     protected $timezone;
@@ -165,10 +165,19 @@ class GeoName
     /**
      * @var Hierarchy[]
      *
-     * @ORM\OneToMany(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\Hierarchy", mappedBy="child")
+     * @ORM\OneToMany(targetEntity="Maxs94\Bundle\GeoNameBundle\Entity\Hierarchy", mappedBy="child")
      */
     protected $parents;
 
+    /**
+     * toString
+     * 
+     * @return GeoName string 
+     */
+     public function toString() {
+         return $this->name;
+     }
+    
 
     /**
      * Get id
