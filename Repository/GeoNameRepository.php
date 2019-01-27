@@ -10,4 +10,8 @@ namespace Maxs94\Bundle\GeoNameBundle\Repository;
  */
 class GeoNameRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function __construct(RegisteryInterface $registry) 
+    {
+        parent::__construct($registry, GeoName::class);
+    }
 }

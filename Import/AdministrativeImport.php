@@ -74,6 +74,9 @@ class AdministrativeImport implements ImportInterface
 
         foreach ($file as $row) {
             $row = array_map('trim',$row);
+            
+            if (stristr($row[0], "undefined")) continue;        // skip "undefined" values from the csv
+            
             list(
                 $code,
                 $name,

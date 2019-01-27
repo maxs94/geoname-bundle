@@ -175,7 +175,7 @@ class GeoName
      * @return GeoName string 
      */
      public function __toString() {
-         return $this->name;
+         return strval($this->name);
      }
     
 
