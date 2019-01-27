@@ -44,7 +44,7 @@ class Hierarchy
      * 
      * @return GeoName string 
      */
-     public function toString() {
+     public function __toString() {
          return $this->id;
      }
     
